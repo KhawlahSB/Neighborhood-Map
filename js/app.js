@@ -100,7 +100,7 @@ var AppViewModel = function () {
           var alteredName = encodeURI(placeItem.name);
 
           //foursquare API 
-          var forSqURL = "https://api.foursquare.com/v2/venues/search?" + placeItem.name + "&query=coffee&intent=checkin&client_id=0CABCIAPRWKUPBHQXSR5CSAWILEDWP0YJOY351AKGHEHHX0X&client_secret=FZM0RV2NGP3B1YBG5IMI01YM3ZATGC0QFNKTJT43FBUJA4BJ"
+          var forSqURL = "https://api.foursquare.com/v2/venues/search?" + placeItem.name + "&query=coffee&intent=checkin&client_id=0CABCIAPRWKUPBHQXSR5CSAWILEDWP0YJOY351AKGHEHHX0X&client_secret=FZM0RV2NGP3B1YBG5IMI01YM3ZATGC0QFNKTJT43FBUJA4BJ";
           //AJAX request for foursquare API information used in infowindows
           $.ajax ({
             url: forSqURL,
@@ -112,21 +112,21 @@ var AppViewModel = function () {
                 for (var i=0; i<articleList.length; i++) {
                   articleStr = articleList[i];
                   var url = 'https://api.foursquare.com/v2/venues/' + articleStr;
-                  contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + response[2] + '</p>' + '<a href=" ' + url + '">' + url + '</a>' + '</div>'
+                  contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + response[2] + '</p>' + '<a href=" ' + url + '">' + url + '</a>' + '</div>';
                   infoWindow.setContent(contentString);
                   console.log(response);
                 }
                 console.log(forSqURL);
               //If no article is found, populate infowindow with content string reflecting no articles were found
               } else {
-                contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + 'No articles found on Wikipedia'+ '</p>' + '</div>'
+                contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + 'No articles found on Wikipedia'+ '</p>' + '</div>';
                 console.log(forSqURL);
                 infoWindow.setContent(contentString);
               }
             }
           //Communicate error when foursquare API is unable to be reached or is not available
           }).error(function(e){
-            contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + 'Failed to reach Wikipedia'+ '</p>' + '</div>'
+            contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + 'Failed to reach Wikipedia'+ '</p>' + '</div>';
             infoWindow.setContent(contentString);
           });
       //Call to open the infowindow
@@ -160,12 +160,12 @@ var AppViewModel = function () {
            if (is_filtered) {
               placeItem.marker.setVisible(true);
               console.log("clicked");
-              return is_filtered
+              return is_filtered;
             }
           //Hide markers that do not match the search value
            else {
               placeItem.marker.setVisible(false);
-              return is_filtered
+              return is_filtered;
             }
         });
       }
@@ -174,5 +174,5 @@ var AppViewModel = function () {
 
 //Call the AppViewModel function
 ko.applyBindings(new AppViewModel());
-};  
+}
 

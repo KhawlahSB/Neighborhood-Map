@@ -106,12 +106,12 @@ var AppViewModel = function () {
             url: forSqURL,
             dataType: "jsonp",
             success: function ( response ){
-              var articleList = response[1];
+              var venues = response[1];
               //If an article is found, populate infowindow with content string information showing foursquare response
-              if (articleList.length > 0) {
-                for (var i=0; i<articleList.length; i++) {
-                  articleStr = articleList[i];
-                  var url = 'https://api.foursquare.com/v2/venues/' + articleStr;
+              if (venues.length > 0) {
+                for (var i=0; i<venues.length; i++) {
+                 
+                  var url = 'https://api.foursquare.com/v2/venues/' + placeItem.name ;
                   contentString = '<div id="content">' + windowNames + '<p>' + windowAddresses + '</p>' + '<p>' + response[2] + '</p>' + '<a href=" ' + url + '">' + url + '</a>' + '</div>';
                   infoWindow.setContent(contentString);
                   console.log(response);

@@ -2,8 +2,8 @@
       body {
         font-family: Arial, sans-serif;
         height: 100%;
-        margin: 0;
-        padding: 0;
+        margin: 10px ;
+        padding: 10px ;
       }
 @-o-viewport {
 	width: 320px;
@@ -18,15 +18,12 @@
         font-size: 12px;
       }
       h1 {
-        color: #2D4472;
+        color: black;
         font-size: 22px;
-        margin: 0 0 10px 0;
+        margin: 5px 5px 10px 5px;
         text-align: center;
       }
-      #hide-listings,
-      #show-listings {
-        width: 48%;
-      }
+   
       #map {
         bottom:0px;
         height: 100%;
@@ -36,9 +33,9 @@
 		overflow: hidden;
 
       }
-      .options-box {
+      .list-box {
         background: #D9CCAC;
-        border: 1px solid #999;
+        border: 5px solid #999;
         border-radius: 3px;
         height: 100%;
         line-height: 35px;
@@ -46,10 +43,6 @@
         text-align: left;
         width: 340px;
       }
-    #zoom-to-area-text {
-        position: relative;
-        width: 70%;
-      }
-      #zoom-to-area {
-        width: 24%;
-      }
+   #list-items {
+  cursor: pointer;
+}

@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=320, initial-scale=0.5">
-        <title>Neighborhood Map</title>
-        <link rel="stylesheet" href="css/style.css">
-	    <link rel="stylesheet" href="css/bootstrap.css">
-      <script src="js/jquery-1.11.3.js"></script>
-  </head>
-  <body>
 
-       <div class="container">
-      <div class="list-box">
-        <h1>Best coffee in Riyadh</h1>
-        <div>
-        <input placeholder="Cafe location" type="filter" data-bind="value: query, valueUpdate: 'afterkeydown'" >
-        </div>
-		  <div>
-    <ul id="list-view" data-bind="template: {allMarkers:'name', foreach:searchList}, value: self.searchList">
-      <li>
-        <a id="list-items"><strong data-bind="text:name, click: $root.markerTrigger"></strong></a>
-      </li>
-    </ul>
-        </div>
-      </div>
-      <div id="map"></div>
-    </div>
-	 <hr>
-	    <!--include knockout -->
-       <script src="js/knockout-3.4.0.js"></script>
-  <script src="js/app.js"></script>
-  <!--Google map API key-->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLcWUDvfMlo7JVPoYw7IESOwNmKQ9VBs&callback=viewMap" 
-  ></script>  
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Neighborhood Map</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="list-box">
+				<h1>Best coffee in Riyadh</h1>
+				<div>
+					<input placeholder="Cafe location" type="filter" data-bind="value: query, valueUpdate: 'afterkeydown'" >
+				</div>
+				<div>
+					<ul id="list-view" data-bind="template: {allMarkers:'name', foreach:searchList}, value: self.searchList">
+						<li>
+							<a id="list-items"><strong data-bind="text:name, click: $root.markerTrigger"></strong></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="map"></div>
+		</div>
+		<hr>
+		<!--include knockout -->
+		<script src="js/knockout-3.4.0.js"></script>
+		<script src="js/app.js"></script>
+		<!--Google map API key-->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLcWUDvfMlo7JVPoYw7IESOwNmKQ9VBs&callback=viewMap" onerror="googleError()"
+				></script> 
+		<script>
+			function googleError() {
+				alert(" Google map can't load...");
+			}
+		</script>
+	</body>
 </html>

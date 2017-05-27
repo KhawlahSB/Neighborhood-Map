@@ -8,37 +8,39 @@
 		<title>Neighborhood Map</title>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
-		<script src="js/jquery-1.11.3.js"></script>
+
 	</head>
 	<body>
+		<script src="js/jquery-1.11.3.js"></script>
+		<nav>
+			<div id = "list">
 
-		<div class="container">
-			<div class="list-box">
 				<h1>Best coffee in Riyadh</h1>
-				<div>
-					<input placeholder="Cafe location" type="filter" data-bind="value: query, valueUpdate: 'afterkeydown'" >
-				</div>
-				<div>
-					<ul id="list-view" data-bind="template: {allMarkers:'name', foreach:searchList}, value: self.searchList">
-						<li>
-							<a id="list-items"><strong data-bind="text:name, click: $root.markerTrigger"></strong></a>
-						</li>
-					</ul>
-				</div>
+				<input placeholder="Cafe location" type="filter" data-bind="value: query, valueUpdate: 'afterkeydown'" >
+
 			</div>
-			<div id="map"></div>
-		</div>
+			<ul id="list-view" data-bind="template: {allMarkers:'name', foreach:searchList}, value: self.searchList">
+				<li>
+					<a id="list-items"><strong data-bind="text:name, click: $root.markerTrigger"></strong></a>
+				</li>
+			</ul>
+
+		</nav>
 		<hr>
+		<aside id="map"></aside>
+
+
 		<!--include knockout -->
 		<script src="js/knockout-3.4.0.js"></script>
 		<script src="js/app.js"></script>
-		<!--Google map API key-->
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLcWUDvfMlo7JVPoYw7IESOwNmKQ9VBs&callback=viewMap" onerror="googleError()"
-				></script> 
 		<script>
 			function googleError() {
 				alert(" Google map can't load...");
 			}
 		</script>
+		<!--Google map API key-->
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLcWUDvfMlo7JVPoYw7IESOwNmKQ9VBs&callback=viewMap" onerror="googleError()"
+				></script> 
+
 	</body>
 </html>

@@ -16,19 +16,19 @@ var allMarkers = [
 var map;
 var infoWindow;
 var marker;
-
+var cafe = function (data) {
+	//use ko.observable from Knockout to updates automatically when the view model changes
+	this.name = ko.observable(data.name);
+	this.latitude = ko.observable(data.latitude);
+	this.longitude = ko.observable(data.longitude);
+	this.marker = '';
+};
 
 //create function to load google map 
 function viewMap () {
 	var ViewModel = function () {
 
-		var cafe = function (data) {
-			//use ko.observable from Knockout to updates automatically when the view model changes
-			this.name = ko.observable(data.name);
-			this.latitude = ko.observable(data.latitude);
-			this.longitude = ko.observable(data.longitude);
-			this.marker = '';
-		};
+
 
 		var self = this;
 
@@ -87,10 +87,10 @@ function viewMap () {
 						var venues = JSON.response.venues;
 
 						if(placeItem.name !== null){
-							
-						var url = 'https://api.foursquare.com/v2/venues/' + placeItem.name ;
-						infoContent = '<div id="content">' + windowNames + '<p>' + 'Location: ' + (venues[0].location.address !== undefined && venues[0].location.address !== null ? venues[0].location.address : "no address data available") + '</p>' + '<p>' +  '</p>'  + 'Phone Number: ' + (venues[0].contact.phone !== undefined && venues[0].contact.phone !== null ? venues[0].contact.phone : "no phone data available")+ '</div>';
-						infoWindow.setContent(infoContent);} }
+
+							var url = 'https://api.foursquare.com/v2/venues/' + placeItem.name ;
+							infoContent = '<div id="content">' + windowNames + '<p>' + 'Location: ' + (venues[0].location.address !== undefined && venues[0].location.address !== null ? venues[0].location.address : "no address data available") + '</p>' + '<p>' +  '</p>'  + 'Phone Number: ' + (venues[0].contact.phone !== undefined && venues[0].contact.phone !== null ? venues[0].contact.phone : "no phone data available")+ '</div>';
+							infoWindow.setContent(infoContent);} }
 
 
 					//Communicate error when foursquare API is unable to be reached or is not available

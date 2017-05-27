@@ -1,26 +1,26 @@
 
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 #map {
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
 
 }
 
 #list {
-  padding-top: 25px;
-	 padding-left: 5px;
+	padding-top: 25px;
+	padding-left: 5px;
 }
 
 #list-view{
-  height: 125px;
+	height: 125px;
 }
 
 #list-items{
-  cursor: pointer;
+	cursor: pointer;
 }
